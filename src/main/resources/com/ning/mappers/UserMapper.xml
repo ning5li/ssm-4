@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.mappers.UserMapper">
+
+<!--    int checkUser(String email,String password);-->
+    <select id="checkUser" resultType="User">
+        select * from user where email=#{email} and password=#{password}
+    </select>
+<!--    void addUser(User user);-->
+    <insert id="addUser">
+        insert into user values (#{email},#{password})
+    </insert>
+<!--    User checkByEmail(String email);-->
+    <select id="checkByEmail" resultType="User">
+        select * from user where email=#{email}
+    </select>
+</mapper>
